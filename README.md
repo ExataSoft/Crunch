@@ -19,7 +19,7 @@ O código depois de compilado deve ser usado na linha de comando de um terminal.
 
 ## Sintaxe:
 
-crunch <string> <min> <max>
+crunch [string] [min] [max]
   
 exemplo1: crunch 123abc 3 5
   

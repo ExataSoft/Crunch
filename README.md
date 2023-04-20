@@ -32,7 +32,7 @@ exemplo3: crunch 123abc 6 6 > passwordlist.txt
 
 [Código fonte + compilado para Linux - Debian]
   
-=> Baixe aqui: CRUNCH-DOWNLOAD - http://bit.ly/3yOWVcR 
+Baixe aqui: CRUNCH-DOWNLOAD - http://bit.ly/3yOWVcR 
 
 ## Meu Website:
 

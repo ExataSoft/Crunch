@@ -16,17 +16,24 @@ Por exemplo: Conjunto de caracteres pre-definidos, permitir permutações sem re
 
 O código depois de compilado deve ser usado na linha de comando de um terminal.
 
+
 ## Sintaxe:
 
 crunch <string> <min> <max>
+  
 exemplo1: crunch 123abc 3 5
+  
 exemplo2: crunch 123abc 3 7
+  
 exemplo3: crunch 123abc 6 6 > passwordlist.txt
 
+  
 ## Link para Download: 
-[ Código fonte + compilado para Linux - Debian ]
-[ Baixe aqui: CRUNCH-DOWNLOAD - http://bit.ly/3yOWVcR ]
 
-##Meu Website:
+[Código fonte + compilado para Linux - Debian]
+  
+=> Baixe aqui: CRUNCH-DOWNLOAD - http://bit.ly/3yOWVcR 
+
+## Meu Website:
 
 http://www.exatasoft.com

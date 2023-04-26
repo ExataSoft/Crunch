@@ -2,7 +2,7 @@
 <p align="center">
 <img src="https://repository-images.githubusercontent.com/630443785/1c9926e4-cb29-4865-b129-b720ce951c14" alt="Crunch | Gerador de Senhas (WordLists) - Código Fonte em C"/>
 <p/>
-<h4 align="center"> código em C, declarado logo abaixo, nos mostra uma das possibilidades de implementação de um gerador lista de palavras (WordList).</h4>
+<h4 align="center"> Código em C implementa uma das possibilidades para um gerador lista de palavras (WordList).</h4>
 
 ## Descrição:
 

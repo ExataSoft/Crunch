@@ -90,7 +90,6 @@ int crunch(char *s, int c0, int c1)
 int ehnatural(char *s)
 {
   int r=1;
-  if(*s=='-')s++;
   for(;*s&&r;r=(((int)*s)>47)&&(((int)*s++<58)));
   return r;
 }

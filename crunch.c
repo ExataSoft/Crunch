@@ -1,27 +1,33 @@
- /* 
-   ___ ___ _   _ _  _  ___ _  _ 
-  / __| _ \ | | | \| |/ __| || |
- | (__|   / |_| | .` | (__| __ |
-  \___|_|_\\___/|_|\_|\___|_||_|
-          By Prof. Marcelo Brito. 
- 
-*/
 
+     /*-----------------------------------------------------------------------/|
+    /                       By Prof. Marcelo Brito.                          / |
+   /                        email: profmarcelobc@gmail.com                  /  |
+  /                         website: www.exatasoft.com                     /   |
+ /                                                                        /    |
+/------------------------------------------------------------------------/     |
+|  ______    ________  ___    ___  _____    ___   _______  ___    ___    |     |
+| / _____/  /_______/  | |    | |  | |\ \   | |  / _____/  | |    | |    |     |
+| | |       | |   | |  | |    | |  | | \ \  | |  | |       | |    | |    |     |
+| | |       | |___|_|  | |    | |  | |  \ \ | |  | |       | |____| |    |     |
+| | |       | \_____/  | |    | |  | |   \ \| |  | |       | \____| |    |    /
+| | |____   | | \ \    | |____| |  | |    \ \ |  | |____   | |    | |    |   /
+| \______\  | |  \ \   \________/  \_|     \_\|  \______\  \_|    \_|    |  /
+|                                                                        | /
+-------------------------------------------------------------------------*/
 #include<stdio.h>
-#define Max 100
+#define Max 50 // Tamanho Máximo do Vetor M que corresponde ao tamanho máximo da palavra.
 int M[Max];
 
-//Retorna o comprimento da string s recursivamente
 
+//---- Retorna o comprimento da string s iterativamente ---//
 int len(char *s)
-{
-   return (*s)?1+len(++s):0;
+{ int c;
+  for(c=0;*s++;c++);
+  return c; 
 }
 
 
-//Imprime os caracteres da string s 
-//segundo as posições dadas pelo vetor M
-
+//---- Imprime os caracteres da string s segundo as posições dadas pelo vetor M ---//
 void imprime(char *s, int p)
 {  int i;
   for(i=0;i<p;i++)
@@ -31,17 +37,14 @@ void imprime(char *s, int p)
 }
 
 
-//Inicia o vetor M com valor zero para cada posição
-
+//---- Inicia o vetor M com valor zero para cada posição ---//
 void iniciaM(int n)
 {
  for(int i=0;i<n;M[i++]=0);
 }
 
 
-
-//Incrementa as posições do vetor M recursivamente
-
+//---- Incrementa as posições do vetor M recursivamente ---//
 void incrementa(int j,int n,int p)
 {
     if(M[j]<n-1)
@@ -52,9 +55,7 @@ void incrementa(int j,int n,int p)
 }
 
 
-//---- Retorna 0 (falso) se todos os 
-//(p) valores de M forem iguais a (n-1)
-
+//---- Retorna 0 (falso) se todos os (p) valores de M forem iguais a (n-1) ---//
 int continua(int p, int n)
 { int i;
   for(i=0;i<p;i++)
@@ -63,16 +64,18 @@ int continua(int p, int n)
 }
 
 
-//Imprime todas as permutações com repetição
-// de comprimento c0 ao comprimento c1
+//---- Imprime todas as permutações com repetição de comprimento c0 ao comprimento c1 ---//
+int crunch(char *s, int c0, int c1)
+{ if((c0<=0)||(c0>c1)||(c0>Max)||(c1>Max))
+   {
+     printf("[ Nota: 0<min<=max<=50 ]\n");
+     return 0;
+   }
 
-void crunch(char *s, int c0, int c1)
-{ if(c0&&(c0<=c1))
+  int n = len(s);
+  int p;
+  for(p=c0;p<=c1;p++)
   {
-    int n = len(s);
-    int p;
-    for(p=c0;p<=c1;p++)
-    {
       iniciaM(p);
       imprime(s,p);
          do{
@@ -80,24 +83,19 @@ void crunch(char *s, int c0, int c1)
             imprime(s,p);
 
            }while(continua(p,n));
-    }
-  }
+  } 
 }
 
-
-//Retorna verdadeiro se a string s 
-//correponder a  um valor inteiro
-
-int ehnumero(char *s)
+//---- Retorna verdadeiro se a string s corresponder a  um valor natural ---//
+int ehnatural(char *s)
 {
   int r=1;
+  if(*s=='-')s++;
   for(;*s&&r;r=(((int)*s)>47)&&(((int)*s++<58)));
   return r;
 }
 
-
-//Retorna o valor inteiro correspondente à string
-
+//---- Retorna o valor natural correspondente à string ---//
 int val(char *s)
 { int b,v;
   char *p =(s+len(s)-1);
@@ -105,31 +103,40 @@ int val(char *s)
   return v;
 }
 
-
-//Imprime a sintaxe ou a falta de argumentos
-
+//---- Imprime a sintaxe ou a falta de argumentos ---//
 void help(int i)
-{
- if(i)
-    { printf("-------------------------------------------------------\n");
-      printf("| sintaxe:  crunch <string> <min> <max>               |\n");
-      printf("| example1: crunch 123abc  3  5                       |\n");
-      printf("| example2: crunch 123abc  3  7                       |\n");
-      printf("| example3: crunch 123abc  6  6  >  passwordlist.txt  |\n");
-      printf("|                                                     |\n");
-      printf("|   by prof. Marcelo de Brito Castro                  |\n");
+{ 
+      printf("\n      (            )          )  \n");
+      printf("    (   )\\ )      ( /(   (   ( /(  \n");
+      printf("    )\\ (()/(   (  )\\())  )\\  )\\()) \n");
+      printf("  (((_) /(_))  )\\((_)\\ (((_)((_)\\  \n");
+      printf("  )\\___(_)) _ ((_)_((_))\\___ _((_) \n");
+      printf(" ((/ __| _ \\ | | | \\| ((/ __| || | \n");
+      printf("  | (__|   / |_| | .` || (__| __ | \n");
+      printf("   \\___|_|_\\\\___/|_|\\_| \\___|_||_| \n");
+
       printf("-------------------------------------------------------\n");
-    }
-  else printf(" [ missing arguments! ]\n\n");
+      printf("| sintaxe:  crunch <string> <min> <max>               |\n");
+      printf("| example1: crunch '#$Ab5' 3  5                       |\n");
+      printf("| example2: crunch 123abc  6  6  >  passwordlist.txt  |\n");
+      printf("| nota: 0<min<=max<=50                                |\n");
+      printf("|                                                     |\n");
+      printf("|   by Prof. Marcelo de Brito Castro                  |\n");
+      printf("|      email: profmarcelobc@gmail.com                 |\n");
+      printf("|      website: www.exatasoft.com                     |\n");
+      printf("-------------------------------------------------------\n\n");
+    
+      if(!i) 
+        printf("[ missing arguments! ]\n\n");
 }
 
 
-//-------- Rotina Principal-------//
+//------------------- Rotina Principal--------------------//
 int main(int argc, char *argv[])
 {
   if(argc==4)
    {
-    if(ehnumero(argv[2])&&ehnumero(argv[3]))
+    if(ehnatural(argv[2])&&ehnatural(argv[3]))
      crunch(argv[1],val(argv[2]),val(argv[3]));
      else help(1);
    }
@@ -142,4 +149,4 @@ int main(int argc, char *argv[])
 
   return 0;
 }
-//----------- FIM -------------//
+//---------------------------------------------------------//
